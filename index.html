@@ -82,7 +82,7 @@
 <div class="container">
     <h2>Introduction to nivigispi</h2>
     <p>
-        Nivigispi is a custom time unit where <strong>1 NVG = 30 seconds</strong>. This unit is designed to offer a simpler way to measure short intervals of time, making it easier to conceptualize seconds in batches. It can be especially useful for counting school breaks.
+        Nivigispi is a custom time unit where <strong>1 nivigispi = 30 seconds</strong>. This unit is designed to offer a simpler way to measure short intervals of time, making it easier to conceptualize seconds in batches. It can be especially useful for counting break times.
     </p>
     <p>
         Use the converter below to easily convert between standard time units (seconds) and NVG units.
@@ -92,12 +92,10 @@
 
     <div class="converter">
         <label for="nvgInput">Enter nivigispi value:</label>
-        <input type="number" id="nvgInput" placeholder="Enter nivigispi">
-        <button onclick="convertToSeconds()">Convert to Seconds</button>
+        <input type="number" id="nvgInput" onchange="convertToSeconds()" placeholder="Enter nivigispi">
 
         <label for="secondsInput">Enter Seconds value:</label>
-        <input type="number" id="secondsInput" placeholder="Enter Seconds">
-        <button onclick="convertToNVG()">Convert to nivigispi</button>
+        <input type="number" id="secondsInput" onchange="convertToNVG()" placeholder="Enter Seconds">
 
         <div class="result" id="result"></div>
     </div>
@@ -109,9 +107,9 @@
         let nvg = document.getElementById('nvgInput').value;
         if (nvg !== '') {
             let seconds = nvg * 30;
-            document.getElementById('result').innerHTML = nvg + " nivigispi = " + seconds + " seconds.";
+            document.getElementById('secondsInput').value = seconds;
         } else {
-            document.getElementById('result').innerHTML = "Please enter a valid nivigispi value.";
+            document.getElementById('result').innerHTML = "Please enter a valid value.";
         }
     }
 
@@ -120,9 +118,9 @@
         let seconds = document.getElementById('secondsInput').value;
         if (seconds !== '') {
             let nvg = seconds / 30;
-            document.getElementById('result').innerHTML = seconds + " seconds = " + nvg + " nivigispi.";
+            document.getElementById('nvgInput').value = nvg;
         } else {
-            document.getElementById('result').innerHTML = "Please enter a valid seconds value.";
+            document.getElementById('result').innerHTML = "Please enter a valid value.";
         }
     }
 </script>
