@@ -109,6 +109,7 @@
             let seconds = nvg * 30;
             document.getElementById('secondsInput').value = seconds;
         } else {
+            document.getElementById('secondsInput').value = 0;
             document.getElementById('result').innerHTML = "Please enter a valid value.";
         }
     }
@@ -120,6 +121,7 @@
             let nvg = seconds / 30;
             document.getElementById('nvgInput').value = nvg;
         } else {
+            document.getElementById('nvgInput').value = 0;
             document.getElementById('result').innerHTML = "Please enter a valid value.";
         }
     }
