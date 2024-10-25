@@ -36,6 +36,12 @@
         p {
             color: #cccccc;
         }
+        .clock {
+            text-align: center;
+            font-size: 2em;
+            margin: 20px 0;
+            color: #ffffff;
+        }
         .converter {
             display: flex;
             flex-direction: column;
@@ -85,6 +91,12 @@
         Nivigispi is a custom time unit where <strong>1 nivigispi = 30 seconds</strong>. This unit is designed to offer a simpler way to measure short intervals of time, making it easier to conceptualize seconds in batches. It can be especially useful for counting break times.
     </p>
     <p>
+        The current time in <strong>nivigispi</strong> is shown below:
+    </p>
+
+    <div class="clock" id="nvgClock">Calculating...</div>
+
+    <p>
         Use the converter below to easily convert between standard time units (seconds) and NVG units.
     </p>
 
@@ -102,6 +114,17 @@
 </div>
 
 <script>
+    // Digital Clock to display current nivigispi count
+    function updateClock() {
+        const now = new Date();
+        const secondsSinceMidnight = (now.getHours() * 3600) + (now.getMinutes() * 60) + now.getSeconds();
+        const nivigispi = Math.floor(secondsSinceMidnight / 30);
+        document.getElementById('nvgClock').innerText = "Current Nivigispi: " + nivigispi;
+    }
+
+    // Update clock every second
+    setInterval(updateClock, 1000);
+
     // Convert NVG to seconds
     function convertToSeconds() {
         let nvg = document.getElementById('nvgInput').value;
@@ -127,6 +150,9 @@
             document.getElementById('result').innerHTML = "Please enter a valid value.";
         }
     }
+
+    // Initialize clock on load
+    updateClock();
 </script>
 
 </body>
